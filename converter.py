@@ -6,12 +6,15 @@ def celsius_to_kelvin(celsius):
 	return celsius + 273.15
 def kelvin_to_celsius(kelvin):
 	return kelvin - 273.15
+def fahrenheit_to_kelvin(f):
+	return celsius_to_kelvin(fahrenheit_to_celsius(f))
 print("=== Конвертер температур ===")
 print("1. Цельсій -> Фаренгейт")
 print("2. Фаренгейт -> Цельсій")
 print("3. Цельсій -> Кельвін")
 print("4. Кельвін -> Цельсій")
-choice = input("\nВиберіть операцію (1-4): ")
+print("5. Фаренгейт -> Кельвін")
+choice = input("\nВиберіть операцію (1-5): ")
 try:
 	temp = float(input("Введіть температуру: "))
 	if choice == '1':
@@ -26,6 +29,9 @@ try:
 	elif choice == '4':
 		result = kelvin_to_celsius(temp)
 		print(f"{temp}K = {result:.2f}°C")
+	elif choice == '5':
+		result = fahrenheit_to_kelvin(temp)
+		print(f"{temp}F = {result:.2f}K")
 	else:
 		print("Невірний вибір!")
 except ValueError:
